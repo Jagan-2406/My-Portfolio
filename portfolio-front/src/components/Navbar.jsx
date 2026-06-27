@@ -81,11 +81,9 @@ export default function Navbar() {
 
       <nav className={`navbar ${isScrolled ? 'scrolled' : 'top'}`}>
         {/* Left: Jagan Monogram Logo */}
-        <a href="#hero" className="nav-logo" onClick={(e) => handleLinkClick(e, '#hero')}>
-          Jagan
-        </a>
+        <a href="#hero" className="nav-logo" onClick={(e) => handleLinkClick(e, '#hero')}>Jagan</a>
 
-        {/* Center/Right: Desktop Nav Links */}
+        {/* Center: Desktop Nav Links */}
         <ul className="nav-links">
           {navItems.map((item) => (
             <li key={item.label}>
@@ -99,6 +97,30 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        {/* Theme Toggle Button */}
+        <button
+          className="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          onClick={() => {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const sheet = document.getElementById('theme-stylesheet');
+            if (isDark) {
+              html.removeAttribute('data-theme');
+              if (sheet) sheet.setAttribute('disabled', '');
+              localStorage.setItem('theme', 'light');
+            } else {
+              html.setAttribute('data-theme', 'dark');
+              if (sheet) sheet.removeAttribute('disabled');
+              localStorage.setItem('theme', 'dark');
+            }
+          }}
+        >
+          {/* Simple icon switch */}
+          <span className="theme-toggle-thumb"></span>
+        </button>
 
         {/* Far Right: Hire Me CTA Pill */}
         <button

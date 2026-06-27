@@ -16,7 +16,23 @@
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  </head>
+  <link rel="stylesheet" href="/global.css">
+<link rel="stylesheet" href="/genz.css" id="theme-stylesheet" disabled>
+<script>
+(function(){
+  const theme = localStorage.getItem('theme') || 'light';
+  if(theme === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    const sheet = document.getElementById('theme-stylesheet');
+    if(sheet) sheet.removeAttribute('disabled');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    const sheet = document.getElementById('theme-stylesheet');
+    if(sheet) sheet.setAttribute('disabled','');
+  }
+})();
+</script>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

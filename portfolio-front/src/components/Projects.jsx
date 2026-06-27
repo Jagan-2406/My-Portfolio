@@ -69,7 +69,13 @@ export default function Projects() {
       netlify: 'https://cdn.simpleicons.org/netlify/00C7B7',
       scikitlearn: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg',
       claudeai: 'https://cdn.simpleicons.org/anthropic/CC9B76',
-      claudeaiapi: 'https://cdn.simpleicons.org/anthropic/CC9B76'
+      claudeaiapi: 'https://cdn.simpleicons.org/anthropic/CC9B76',
+      supabase: 'https://cdn.simpleicons.org/supabase/3ECF8E',
+      android: 'https://cdn.simpleicons.org/android/3DDC84',
+      arcore: 'https://cdn.simpleicons.org/google/4285F4',
+      opentamil: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      gtts: 'https://cdn.simpleicons.org/google/4285F4',
+      webspeechapi: 'https://cdn.simpleicons.org/javascript/F7DF1E'
     };
     return devicons[name] || null;
   };

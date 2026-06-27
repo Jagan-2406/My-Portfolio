@@ -9,6 +9,7 @@ export default function Navbar() {
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Education', href: '#education' },
     { label: 'Projects', href: '#projects' },
     { label: 'Achievements', href: '#achievements' },
     { label: 'Contact', href: '#contact' },
@@ -32,7 +33,7 @@ export default function Navbar() {
       }
 
       // Track active section for indicator
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'achievements', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'experience', 'education', 'projects', 'achievements', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {

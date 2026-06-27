@@ -6,8 +6,7 @@ export default function Achievements() {
       title: 'IBM Naan Mudhalvan Hackathon Winner',
       event: 'IBM Naan Mudhalvan Hackathon 2026',
       year: '2026',
-      prize: '₹25,000 Cash Award',
-      detail: 'Won 1st Prize for Smart Appointment Scheduling System — a full-stack React + Node + MongoDB centralized management platform.',
+      detail: 'Won 1st Prize for Smart Appointment Scheduling System — a full-stack React + Node + MongoDB centralized management platform. ₹25,000 cash award.',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="8" r="7" />
@@ -46,7 +45,7 @@ export default function Achievements() {
           {achievements.map((item, index) => (
             <div
               key={index}
-              className="achievement-card glass glass-violet glow-pulse reveal"
+              className="achievement-card glass glass-violet reveal"
               data-delay={`${index * 0.15}s`}
             >
               <div className="achievement-icon">
@@ -56,7 +55,6 @@ export default function Achievements() {
               <div className="achievement-event">{item.event}</div>
               <span className="achievement-year date-badge">{item.year}</span>
               <p className="achievement-detail">{item.detail}</p>
-              {item.prize && <span className="achievement-prize">{item.prize}</span>}
             </div>
           ))}
         </div>

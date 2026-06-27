@@ -100,7 +100,7 @@ export default function Certifications() {
                     </div>
                   </div>
                 </div>
-                <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'between', alignItems: 'center', paddingTop: 'var(--space-md)' }}>
+                <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 'var(--space-md)' }}>
                   <span className="cert-year date-badge">{cert.year}</span>
                   <div className="cert-action">
                     <a

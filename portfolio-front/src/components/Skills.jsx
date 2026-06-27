@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Languages');
 
-  const categories = ['All', 'Languages', 'Frontend', 'Backend', 'AI/ML', 'AR', 'Tools'];
+  const categories = ['Languages', 'Frontend', 'Backend', 'AI/ML', 'AR', 'Tools'];
 
   const skillCategories = {
     Languages: {
@@ -145,19 +145,12 @@ export default function Skills() {
 
   // Determine which skills to show
   const getFilteredSkills = () => {
-    if (activeCategory === 'All') {
-      return Object.keys(skillCategories).map(catKey => ({
-        categoryKey: catKey,
-        ...skillCategories[catKey]
-      }));
-    } else {
-      return [
-        {
-          categoryKey: activeCategory,
-          ...skillCategories[activeCategory]
-        }
-      ];
-    }
+    return [
+      {
+        categoryKey: activeCategory,
+        ...skillCategories[activeCategory]
+      }
+    ];
   };
 
   return (

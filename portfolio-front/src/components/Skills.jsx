@@ -192,6 +192,7 @@ export default function Skills() {
                     key={skill.name}
                     className="skill-pill reveal"
                     data-delay={`${0.05 * index}s`}
+                    data-category={catObj.categoryKey === 'AI/ML' ? 'ai' : catObj.categoryKey.toLowerCase()}
                     style={{ position: 'relative' }}
                   >
                     {skill.type === 'svg' ? (

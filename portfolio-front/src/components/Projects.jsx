@@ -122,7 +122,7 @@ export default function Projects() {
             return (
               <div
                 key={project.id || project._id || index}
-                className={`project-card glass ${isFeatured ? 'glass-gradient glow-pulse' : ''} reveal`}
+                className={`project-card glass ${isFeatured ? 'featured glass-gradient glow-pulse' : ''} reveal`}
                 data-delay={`${index * 0.1}s`}
               >
                 <div className="project-card-body">
@@ -149,7 +149,7 @@ export default function Projects() {
                     {project.tech && project.tech.map((t, idx) => {
                       const iconUrl = getTechIcon(t);
                       return (
-                        <span key={idx} className="tech-tag">
+                        <span key={idx} className="tech-tag" data-tech={t.toLowerCase().replace('.js', '').trim()}>
                           {iconUrl && (
                             <img
                               src={iconUrl}

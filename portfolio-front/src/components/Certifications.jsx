@@ -81,36 +81,41 @@ export default function Certifications() {
 
         {/* Certifications Grid */}
         <div className="certifications-grid">
-          {certifications.map((cert, index) => (
-            <div
-              key={index}
-              className="cert-card glass reveal"
-              data-delay={`${index * 0.08}s`}
-            >
-              <div className="cert-header">
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)' }}>
-                  {renderLogo(cert.logo)}
-                  <div>
-                    <h3 className="cert-title" style={{ fontSize: '15px', fontWeight: 600, lineHieght: 1.4 }}>{cert.title}</h3>
-                    <div className="cert-issuer" style={{ fontSize: '13px', marginTop: '2px' }}>{cert.issuer}</div>
+          {certifications.map((cert, index) => {
+            const issuerLower = cert.issuer.toLowerCase();
+            const issuerAttr = issuerLower.includes('ibm') ? 'ibm' : (issuerLower.includes('microsoft') ? 'microsoft' : (issuerLower.includes('nptel') ? 'nptel' : 'other'));
+            return (
+              <div
+                key={index}
+                className="cert-card glass glass-cyan reveal"
+                data-delay={`${index * 0.08}s`}
+                data-issuer={issuerAttr}
+              >
+                <div className="cert-header">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)' }}>
+                    {renderLogo(cert.logo)}
+                    <div>
+                      <h3 className="cert-title" style={{ fontSize: '15px', fontWeight: 600, lineHieght: 1.4 }}>{cert.title}</h3>
+                      <div className="cert-issuer" style={{ fontSize: '13px', marginTop: '2px' }}>{cert.issuer}</div>
+                    </div>
+                  </div>
+                </div>
+                <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'between', alignItems: 'center', paddingTop: 'var(--space-md)' }}>
+                  <span className="cert-year">{cert.year}</span>
+                  <div className="cert-action">
+                    <a
+                      href={cert.link}
+                      className="btn-ghost"
+                      style={{ padding: '4px 12px', fontSize: '11px', borderRadius: 'var(--radius-sm)' }}
+                      onClick={(e) => e.preventDefault()} // Keep as interactive placeholder
+                    >
+                      View Certificate
+                    </a>
                   </div>
                 </div>
               </div>
-              <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'between', alignItems: 'center', paddingTop: 'var(--space-md)' }}>
-                <span className="cert-year">{cert.year}</span>
-                <div className="cert-action">
-                  <a
-                    href={cert.link}
-                    className="btn-ghost"
-                    style={{ padding: '4px 12px', fontSize: '11px', borderRadius: 'var(--radius-sm)' }}
-                    onClick={(e) => e.preventDefault()} // Keep as interactive placeholder
-                  >
-                    View Certificate
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

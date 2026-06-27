@@ -71,6 +71,19 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-body:    'Inter', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
+  --color-rose:         #F43F5E;
+  --color-rose-faint:   #FFF1F2;
+  --color-amber:        #F59E0B;
+  --color-amber-faint:  #FFFBEB;
+  --color-emerald:      #10B981;
+  --color-emerald-faint:#ECFDF5;
+  --gradient-sunset:    linear-gradient(135deg, #F43F5E 0%, #F59E0B 100%);
+  --gradient-ocean:     linear-gradient(135deg, #0891B2 0%, #2563EB 100%);
+  --gradient-forest:    linear-gradient(135deg, #10B981 0%, #0891B2 100%);
+  --gradient-aurora:    linear-gradient(135deg, #7C3AED 0%, #2563EB 50%, #0891B2 100%);
+  --glow-blue:          0 0 20px rgba(37,99,235,0.25), 0 0 60px rgba(37,99,235,0.10);
+  --glow-violet:        0 0 20px rgba(124,58,237,0.25), 0 0 60px rgba(124,58,237,0.10);
+  --glow-cyan:          0 0 20px rgba(8,145,178,0.25), 0 0 60px rgba(8,145,178,0.10);
 }
 
 /* ── Reset & Base Styles ── */
@@ -155,6 +168,28 @@ body {
   transition:         all var(--duration-base) var(--ease-out);
   position:           relative;
   overflow:           hidden;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.00) 100%
+  );
+}
+
+/* Inner highlight rim — top and left edge only */
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.00) 40%,
+    rgba(255,255,255,0.00) 60%,
+    rgba(255,255,255,0.15) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .glass::before {
@@ -175,6 +210,25 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* Coloured glass variants — add these new classes */
+.glass-blue {
+  background: rgba(239,246,255,0.65);
+  border-color: rgba(37,99,235,0.20);
+}
+.glass-blue:hover { border-color: rgba(37,99,235,0.45); box-shadow: var(--glow-blue); }
+
+.glass-violet {
+  background: rgba(245,243,255,0.65);
+  border-color: rgba(124,58,237,0.20);
+}
+.glass-violet:hover { border-color: rgba(124,58,237,0.45); box-shadow: var(--glow-violet); }
+
+.glass-cyan {
+  background: rgba(236,254,255,0.65);
+  border-color: rgba(8,145,178,0.20);
+}
+.glass-cyan:hover { border-color: rgba(8,145,178,0.45); box-shadow: var(--glow-cyan); }
 
 .glass:hover {
   background:    var(--glass-bg-hover);
@@ -484,11 +538,23 @@ body {
   box-shadow: 0 0 8px #22c55e;
 }
 
+/* Gradient shimmer on H1 name — animated */
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .hero-name {
-  background:              var(--gradient-brand);
+  background: linear-gradient(
+    270deg,
+    #2563EB, #7C3AED, #0891B2, #2563EB
+  );
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip:         text;
+  background-clip: text;
+  animation: shimmer 6s ease infinite;
 }
 
 .hero-role-wrapper {
@@ -529,6 +595,7 @@ body {
   cursor: pointer;
   transition:    all var(--duration-base) var(--ease-out);
   box-shadow:    0 4px 14px rgba(37,99,235,0.35);
+  overflow: hidden;
 }
 
 .btn-primary:hover {
@@ -1707,3 +1774,360 @@ body {
   text-decoration: none;
   margin-top: 16px;
 }
+
+/* ── ADDITIONAL VISUAL ENHANCEMENTS ── */
+
+/* ── ENHANCEMENT 3 — HERO SECTION UPGRADES ── */
+
+/* Availability badge — pulse ring on the green dot */
+@keyframes pingRing {
+  0%    { transform: scale(1);   opacity: 0.8; }
+  100%  { transform: scale(2.2); opacity: 0; }
+}
+.hero-badge::before {
+  position: relative;
+}
+.hero-badge::before::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pingRing 1.8s ease-out infinite;
+}
+
+/* Stat cards — gradient top border accent */
+.stat-card {
+  border-top: 2px solid transparent;
+  background-image: linear-gradient(white, white),
+                    var(--gradient-brand);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Stat number — gradient text */
+.stat-number {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CTA button — shimmer sweep on hover */
+@keyframes btnShimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+}
+.btn-primary:hover::before {
+  animation: btnShimmer 0.6s ease forwards;
+}
+
+/* ── ENHANCEMENT 4 — SKILLS SECTION UPGRADES ── */
+
+/* Active filter tab */
+.skill-filter-tab {
+  padding:       8px 18px;
+  border-radius: var(--radius-full);
+  font:          600 13px/1 var(--font-body);
+  border:        1px solid var(--color-border);
+  background:    transparent;
+  color:         var(--color-text-muted);
+  cursor:        pointer;
+  transition:    all var(--duration-base) var(--ease-out);
+}
+.skill-filter-tab:hover {
+  border-color: var(--color-blue);
+  color:        var(--color-blue);
+  background:   var(--color-blue-faint);
+}
+.skill-filter-tab.active {
+  background:  var(--gradient-brand);
+  color:       white;
+  border-color:transparent;
+  box-shadow:  0 4px 14px rgba(37,99,235,0.30);
+}
+
+/* Skill pill — glow on hover by category */
+.skill-pill[data-category="languages"]:hover { box-shadow: 0 4px 16px rgba(37,99,235,0.22); }
+.skill-pill[data-category="frontend"]:hover  { box-shadow: 0 4px 16px rgba(124,58,237,0.22); }
+.skill-pill[data-category="backend"]:hover   { box-shadow: 0 4px 16px rgba(8,145,178,0.22); }
+.skill-pill[data-category="ai"]:hover        { box-shadow: 0 4px 16px rgba(16,185,129,0.22); }
+.skill-pill[data-category="ar"]:hover        { box-shadow: 0 4px 16px rgba(245,158,11,0.22); }
+
+/* ── ENHANCEMENT 5 — EXPERIENCE TIMELINE UPGRADES ── */
+
+/* IBM company name — gradient text */
+.timeline-company {
+  background: var(--gradient-ocean);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* Timeline dot — animated outer ring */
+@keyframes dotPulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(37,99,235,0.20); }
+  50%     { box-shadow: 0 0 0 6px rgba(37,99,235,0.10); }
+}
+.timeline-item::before {
+  animation: dotPulse 3s ease-in-out infinite;
+}
+
+/* Internship badge — gradient pill */
+.timeline-date {
+  background:  var(--gradient-brand);
+  color:       white;
+  font-weight: 600;
+}
+
+/* ── ENHANCEMENT 6 — PROJECT CARDS UPGRADES ── */
+
+/* Gradient top border — always visible (not just on hover) for featured card */
+.project-card.featured::after {
+  opacity: 1;
+  height: 4px;
+  background: var(--gradient-sunset);
+}
+
+/* Project title — hover gradient text */
+.project-card:hover .project-title {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tech tag — coloured by category */
+.tech-tag[data-tech="react"]      { background: #EFF6FF; color: #1d4ed8; border-color: rgba(29,78,216,0.20); }
+.tech-tag[data-tech="python"]     { background: #EFF6FF; color: #2563EB; border-color: rgba(37,99,235,0.20); }
+.tech-tag[data-tech="mongodb"]    { background: #F0FDF4; color: #15803d; border-color: rgba(21,128,61,0.20); }
+.tech-tag[data-tech="unity"]      { background: #F8FAFC; color: #0F172A; border-color: rgba(15,23,42,0.20); }
+.tech-tag[data-tech="flask"]      { background: #F0FDF4; color: #059669; border-color: rgba(5,150,105,0.20); }
+.tech-tag[data-tech="nodejs"]     { background: #F0FDF4; color: #16a34a; border-color: rgba(22,163,74,0.20); }
+
+/* Card image placeholder — gradient instead of grey */
+.project-card-image {
+  background: var(--gradient-soft);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── ENHANCEMENT 7 — ACHIEVEMENTS SECTION UPGRADES ── */
+
+/* Achievement card — gradient border */
+.achievement-card {
+  border: 1px solid transparent;
+  background-image: linear-gradient(white, white),
+                    var(--gradient-brand);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Trophy icon container */
+.achievement-icon {
+  width:        56px; height: 56px;
+  border-radius: var(--radius-md);
+  background:   var(--gradient-sunset);
+  display:      flex; align-items: center; justify-content: center;
+  box-shadow:   0 4px 14px rgba(244,63,94,0.25);
+  margin-bottom: var(--space-md);
+}
+.achievement-icon svg { width: 28px; height: 28px; color: white; fill: white; }
+
+/* Prize amount highlight */
+.achievement-prize {
+  font:       700 15px/1 var(--font-display);
+  color:      var(--color-emerald);
+  background: var(--color-emerald-faint);
+  padding:    3px 10px;
+  border-radius: var(--radius-full);
+  display:    inline-block;
+  margin-top: var(--space-sm);
+}
+
+/* ── ENHANCEMENT 8 — CERTIFICATIONS UPGRADES ── */
+
+/* Cert card — issuer colour accent on hover */
+.cert-card[data-issuer="ibm"]:hover      { border-color: rgba(37,99,235,0.40); box-shadow: var(--glow-blue); }
+.cert-card[data-issuer="microsoft"]:hover{ border-color: rgba(0,120,212,0.40); box-shadow: 0 0 20px rgba(0,120,212,0.20); }
+.cert-card[data-issuer="nptel"]:hover    { border-color: rgba(16,185,129,0.40); box-shadow: var(--glow-cyan); }
+
+/* View cert button — gradient on hover */
+.cert-view-btn {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           6px;
+  padding:       7px 14px;
+  border-radius: var(--radius-full);
+  font:          600 12px/1 var(--font-body);
+  border:        1px solid var(--color-border);
+  color:         var(--color-text-muted);
+  background:    transparent;
+  opacity:       0;
+  transform:     translateY(6px);
+  transition:    all var(--duration-base) var(--ease-out);
+  cursor:        pointer;
+}
+.cert-card:hover .cert-view-btn {
+  opacity:       1;
+  transform:     translateY(0);
+  background:    var(--gradient-brand);
+  color:         white;
+  border-color:  transparent;
+}
+
+/* ── ENHANCEMENT 9 — JADE AI CHATBOT UPGRADES ── */
+
+/* Toggle button — rotating gradient border ring */
+@keyframes rotateBorder {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.chat-toggle-ring {
+  position:      absolute;
+  inset:         -3px;
+  border-radius: 50%;
+  background:    conic-gradient(from 0deg, #2563EB, #7C3AED, #0891B2, #2563EB);
+  animation:     rotateBorder 3s linear infinite;
+  z-index:       -1;
+}
+
+/* Message bubbles — upgrade */
+.msg-ai {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.80) 0%,
+    rgba(239,246,255,0.60) 100%
+  );
+  border: 1px solid rgba(37,99,235,0.15);
+}
+
+/* Input focus — gradient ring */
+.chat-input:focus {
+  border-color: var(--color-blue);
+  box-shadow:   0 0 0 3px rgba(37,99,235,0.15),
+                0 0 0 1px var(--color-blue);
+  outline: none;
+}
+
+/* Send button — shimmer on hover */
+.chat-send { overflow: hidden; position: relative; }
+.chat-send:hover::before {
+  animation: btnShimmer 0.6s ease forwards;
+}
+
+/* ── ENHANCEMENT 10 — FOOTER UPGRADES ── */
+
+/* Footer gradient divider at top */
+.footer::before {
+  content:    '';
+  position:   absolute;
+  top: 0; left: 0; right: 0;
+  height:     1px;
+  background: var(--gradient-aurora);
+}
+
+/* Footer logo — gradient text */
+.footer-logo {
+  background:              var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip:         text;
+}
+
+/* Social icons in footer — white versions, hover → brand color */
+.footer .social-icon {
+  background:   rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+}
+.footer .social-icon:hover {
+  background:   rgba(37,99,235,0.25);
+  border-color: rgba(37,99,235,0.50);
+  transform:    translateY(-3px);
+  box-shadow:   0 6px 16px rgba(37,99,235,0.30);
+}
+
+/* Back to top button */
+.back-to-top {
+  position:      fixed;
+  bottom:        28px; left: 28px;
+  width:         44px; height: 44px;
+  border-radius: 50%;
+  background:    var(--gradient-brand);
+  border:        none;
+  cursor:        pointer;
+  display:       flex; align-items: center; justify-content: center;
+  box-shadow:    0 4px 14px rgba(37,99,235,0.35);
+  opacity:       0;
+  transform:     translateY(10px);
+  transition:    all var(--duration-base) var(--ease-out);
+  z-index:       500;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover   { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.45); }
+
+/* ── ENHANCEMENT 11 — PAGE-WIDE POLISH ── */
+
+/* Selection colour */
+::selection { background: rgba(37,99,235,0.15); color: var(--color-blue); }
+
+/* Scrollbar styling */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-muted); }
+::-webkit-scrollbar-thumb { background: var(--gradient-brand); border-radius: 3px; }
+
+/* Section headings — gradient underline accent */
+.section-title {
+  position:    relative;
+  display:     inline-block;
+  padding-bottom: 12px;
+}
+.section-title::after {
+  content:   '';
+  position:  absolute;
+  bottom:    0; left: 0;
+  width:     48px; height: 3px;
+  background: var(--gradient-brand);
+  border-radius: 2px;
+  transition: width var(--duration-slow) var(--ease-out);
+}
+.section-title:hover::after { width: 100%; }
+
+/* Section subtitle */
+.section-subtitle {
+  font:        400 17px/1.6 var(--font-body);
+  color:       var(--color-text-muted);
+  max-width:   560px;
+  margin-top:  var(--space-sm);
+}
+
+/* Smooth scroll on html */
+html { scroll-behavior: smooth; }
+
+/* Focus visible — keyboard accessibility */
+:focus-visible {
+  outline:        2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius:  var(--radius-sm);
+}
+
+/* Link default */
+a {
+  color:           var(--color-blue);
+  text-decoration: none;
+  transition:      color var(--duration-fast);
+}
+a:hover { color: var(--color-violet); }

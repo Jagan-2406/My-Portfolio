@@ -45,7 +45,7 @@ export default function Achievements() {
           {achievements.map((item, index) => (
             <div
               key={index}
-              className="achievement-card glass glow-pulse reveal"
+              className="achievement-card glass glass-violet glow-pulse reveal"
               data-delay={`${index * 0.15}s`}
             >
               <div className="achievement-icon-wrapper">

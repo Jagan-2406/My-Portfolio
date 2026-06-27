@@ -120,15 +120,15 @@ export default function Hero() {
 
           {/* Stats Row */}
           <div className="hero-stats">
-            <div className="stat-card glass">
+            <div className="stat-card glass glass-blue">
               <div className="stat-number">3+</div>
               <div className="stat-label">Projects</div>
             </div>
-            <div className="stat-card glass">
+            <div className="stat-card glass glass-blue">
               <div className="stat-number">2</div>
               <div className="stat-label">Internships</div>
             </div>
-            <div className="stat-card glass">
+            <div className="stat-card glass glass-blue">
               <div className="stat-number">6+</div>
               <div className="stat-label">Certifications</div>
             </div>

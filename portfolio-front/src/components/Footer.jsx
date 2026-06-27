@@ -44,35 +44,33 @@ export default function Footer() {
   return (
     <>
       <footer className="footer">
-        <div className="footer-inner">
-          {/* Left: Jagan branding + tagline + social icons */}
+        <div className="footer-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          {/* Left: Jagan branding + tagline */}
           <div>
-            <a href="#hero" className="footer-brand-name" onClick={(e) => handleScrollToSection(e, 'hero')}>
+            <a href="#hero" className="footer-brand-name" onClick={(e) => handleScrollToSection(e, 'hero')} style={{ display: 'inline-block', marginBottom: '4px' }}>
               Jagan
             </a>
-            <p className="footer-tagline">
+            <p className="footer-tagline" style={{ margin: 0 }}>
               Code. Create. Impact.
             </p>
-            <div className="footer-socials">
-              <a href="https://github.com/Jagan-2406" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
-                <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" width="18" height="18" />
-              </a>
-              <a href="https://linkedin.com/in/jagan2406" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
-                <img src="https://cdn.simpleicons.org/linkedin/FFFFFF" alt="LinkedIn" width="18" height="18" />
-              </a>
-              <a href="https://x.com/Jagan1529014" target="_blank" rel="noopener noreferrer" className="social-icon" title="X (Twitter)">
-                <img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" width="18" height="18" />
-              </a>
-              <a href="https://wa.me/919345591948" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
-                <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="WhatsApp" width="18" height="18" />
-              </a>
-            </div>
           </div>
 
-          {/* Right: built with */}
-          <div className="footer-right">
-            Built with <strong>❤️</strong> and lots of <strong>☕</strong><br />
-            Stack: <strong>React · Node · Express · MongoDB</strong>
+          {/* Right: All social media links */}
+          <div className="footer-socials" style={{ margin: 0, display: 'flex', gap: 'var(--space-sm)' }}>
+            <a href="https://github.com/Jagan-2406" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
+              <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" width="18" height="18" />
+            </a>
+            <a href="https://linkedin.com/in/jagan2406" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" style={{ display: 'block' }}>
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/Jagan1529014" target="_blank" rel="noopener noreferrer" className="social-icon" title="X (Twitter)">
+              <img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" width="18" height="18" />
+            </a>
+            <a href="https://wa.me/919345591948" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="WhatsApp" width="18" height="18" />
+            </a>
           </div>
         </div>
 

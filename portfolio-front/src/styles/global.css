@@ -2450,7 +2450,7 @@ a:hover { color: var(--color-violet); }
 
 .footer {
   background: #0F172A !important;
-  padding: var(--space-2xl) var(--space-xl) !important;
+  padding: var(--space-lg) var(--space-xl) !important;
   position: relative;
 }
 

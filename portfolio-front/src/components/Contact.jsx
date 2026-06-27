@@ -87,7 +87,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="section" style={{ background: 'linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 100%)' }}>
+    <section id="contact" className="section mesh-section">
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">

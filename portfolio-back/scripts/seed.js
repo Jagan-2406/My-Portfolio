@@ -8,7 +8,7 @@ const projectsToSeed = [
     description: "AR-based earthquake awareness app that simulates disaster scenarios to educate users on emergency preparedness through interactive experiences.",
     tech: ["Unity", "ARCore", "C#", "Android Studio"],
     github: "https://github.com/Jagan-2406/My-AR",
-    live: "Android APK available",
+    live: "https://drive.google.com/file/d/1OScVx_dDAmWF2_4MeiFvqeGrTxJBppdR/view?usp=sharing",
     category: "AR",
     featured: false,
     outcome: "Deployed interactive AR app on Android — practical disaster awareness and emergency preparedness tool."

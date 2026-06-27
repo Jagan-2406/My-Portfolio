@@ -97,8 +97,8 @@ export default function Projects() {
       <div className="container" style={{ zIndex: 2 }}>
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Projects</span>
-          <h2 className="text-h1 section-title">Showcase of My Work</h2>
+          <span className="section-eyebrow">Projects</span>
+          <h2 className="section-heading">Showcase of My Work</h2>
           <p className="section-desc">AI solutions, immersive AR applications, and full-stack scheduling systems.</p>
         </div>
 
@@ -137,7 +137,7 @@ export default function Projects() {
                   )}
 
                   {/* Project Name */}
-                  <h3 className="project-title" style={{ paddingRight: isFeatured ? '90px' : '0px' }}>
+                  <h3 className="project-title card-title" style={{ paddingRight: isFeatured ? '90px' : '0px' }}>
                     {project.name}
                   </h3>
 

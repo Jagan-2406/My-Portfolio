@@ -44,14 +44,14 @@ export default function Footer() {
   return (
     <>
       <footer className="footer">
-        <div className="footer-grid">
-          {/* Column 1: Monogram & Socials */}
+        <div className="footer-inner">
+          {/* Left: Jagan branding + tagline + social icons */}
           <div>
-            <a href="#hero" className="footer-logo" onClick={(e) => handleScrollToSection(e, 'hero')}>
-              JV
+            <a href="#hero" className="footer-brand-name" onClick={(e) => handleScrollToSection(e, 'hero')}>
+              Jagan
             </a>
             <p className="footer-tagline">
-              Driven by curiosity. Focused on innovation. Committed to impact.
+              Code. Create. Impact.
             </p>
             <div className="footer-socials">
               <a href="https://github.com/Jagan-2406" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
@@ -69,34 +69,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4 className="footer-title">Quick Links</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#about" onClick={(e) => handleScrollToSection(e, 'about')}>About</a>
-              </li>
-              <li>
-                <a href="#projects" onClick={(e) => handleScrollToSection(e, 'projects')}>Projects</a>
-              </li>
-              <li>
-                <a href="#contact" onClick={(e) => handleScrollToSection(e, 'contact')}>Contact</a>
-              </li>
-              <li>
-                <a href={resumePdf} download="Jagan-Resume.pdf">Resume</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Build Credit & Stack */}
-          <div>
-            <h4 className="footer-title">About This Portfolio</h4>
-            <p className="footer-credit">
-              Built with <span>❤️</span> and lots of <span>☕</span>
-            </p>
-            <p className="footer-credit" style={{ fontSize: '13px', marginTop: 'var(--space-sm)', color: 'var(--color-text-faint)' }}>
-              Stack: React · Node · Express · MongoDB
-            </p>
+          {/* Right: built with */}
+          <div className="footer-right">
+            Built with <strong>❤️</strong> and lots of <strong>☕</strong><br />
+            Stack: <strong>React · Node · Express · MongoDB</strong>
           </div>
         </div>
 

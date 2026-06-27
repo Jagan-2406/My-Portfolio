@@ -74,7 +74,7 @@ export default function Hero() {
             </h2>
           </div>
 
-          <h3 className="text-h3" style={{ color: 'var(--color-text)', marginBottom: 'var(--space-sm)', fontWeight: 600 }}>
+          <h3 className="hero-tagline">
             Driven by curiosity. Focused on innovation. Committed to impact.
           </h3>
 
@@ -137,8 +137,11 @@ export default function Hero() {
 
         {/* Right Column - Visual Graphic with Profile Avatar */}
         <div className="hero-visual">
-          <div className="hero-avatar-wrapper">
-            <img src={profileImg} alt="Jagan V N" loading="lazy" />
+          <div className="hero-profile-wrapper">
+            <div className="hero-profile-ring"></div>
+            <div className="hero-avatar-wrapper">
+              <img src={profileImg} alt="Jagan V N" className="hero-profile-img" loading="lazy" />
+            </div>
           </div>
 
           {/* Floating mini cards */}

@@ -91,8 +91,8 @@ export default function Contact() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Get In Touch</span>
-          <h2 className="text-h1 section-title">Let's Connect</h2>
+          <span className="section-eyebrow">Get In Touch</span>
+          <h2 className="section-heading">Let's Connect</h2>
           <p className="section-desc">Have an internship opportunity, a project proposal, or just want to say hi?</p>
         </div>
 
@@ -106,7 +106,7 @@ export default function Contact() {
                 href={detail.href}
                 target={detail.href.startsWith('http') ? '_blank' : '_self'}
                 rel="noopener noreferrer"
-                className="contact-card glass reveal"
+                className="contact-info-card glass reveal"
                 data-delay={`${index * 0.08}s`}
               >
                 <div className="contact-icon-wrapper">
@@ -207,7 +207,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="contact-submit"
+                  className="contact-submit btn-send"
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' ? (

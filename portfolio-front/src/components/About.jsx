@@ -65,8 +65,8 @@ export default function About() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">About Me</span>
-          <h2 className="text-h1 section-title">My Background & Philosophy</h2>
+          <span className="section-eyebrow">About Me</span>
+          <h2 className="section-heading">My Background & Philosophy</h2>
           <p className="section-desc">Get to know the developer, engineer, and student behind the projects.</p>
         </div>
 

@@ -2,8 +2,10 @@
 
 :root {
   /* ── Base ── */
-  --color-bg:          #FFFFFF;
-  --color-bg-alt:      #F8FAFC;
+  --color-bg:          #F4F6FB;
+  --color-bg-alt:      #EEF1F8;
+  --color-bg-deep:     #E8EDF7;
+  --color-surface:     rgba(255,255,255,0.72);
   --color-bg-muted:    #F1F5F9;
   
   /* ── Text ── */
@@ -30,7 +32,7 @@
   --color-border-strong: #CBD5E1;
   
   /* ── Glass ── */
-  --glass-bg:          rgba(255, 255, 255, 0.60);
+  --glass-bg:          var(--color-surface);
   --glass-bg-hover:    rgba(255, 255, 255, 0.80);
   --glass-border:      rgba(255, 255, 255, 0.75);
   --glass-shadow:      0 8px 32px rgba(37, 99, 235, 0.08), 0 2px 8px rgba(0,0,0,0.04);
@@ -122,6 +124,7 @@ body {
   padding: var(--space-3xl) var(--space-xl);
   position: relative;
   overflow: hidden;
+  background: var(--color-bg);
 }
 
 .container {
@@ -2131,3 +2134,425 @@ a {
   transition:      color var(--duration-fast);
 }
 a:hover { color: var(--color-violet); }
+
+/* ── MASTER VISUAL OVERHAUL STYLES ── */
+
+/* Skill pills — keep existing, add colored left micro-border */
+.skill-pill {
+  border-left: 3px solid var(--color-blue);
+}
+.skill-pill[data-category="frontend"] { border-left-color: var(--color-violet); }
+.skill-pill[data-category="backend"]  { border-left-color: var(--color-cyan); }
+.skill-pill[data-category="ai"]       { border-left-color: var(--color-emerald); }
+.skill-pill[data-category="ar"]       { border-left-color: var(--color-amber); }
+.skill-pill[data-category="tools"]    { border-left-color: #64748B; }
+
+/* Experience timeline cards — blue left accent stripe */
+.timeline-item {
+  border-left: 4px solid var(--color-blue) !important;
+  background: var(--color-surface) !important;
+  box-shadow: 0 2px 16px rgba(37,99,235,0.07) !important;
+}
+
+/* Project cards — each gets a unique top gradient bar always visible */
+.project-card:nth-child(1) { border-top: 3px solid transparent !important; border-image: linear-gradient(90deg,#2563EB,#0891B2) 1 !important; }
+.project-card:nth-child(2) { border-top: 3px solid transparent !important; border-image: linear-gradient(90deg,#F43F5E,#F59E0B) 1 !important; }
+.project-card:nth-child(3) { border-top: 3px solid transparent !important; border-image: linear-gradient(90deg,#7C3AED,#2563EB) 1 !important; }
+.project-card { background: var(--color-surface) !important; }
+
+/* Achievement cards — gradient border always on */
+.achievement-card {
+  background: var(--color-surface) !important;
+  border: 1.5px solid transparent !important;
+  background-clip: padding-box !important;
+  position: relative !important;
+}
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: var(--gradient-brand);
+  z-index: -1;
+}
+
+/* Cert cards — issuer colour top bar */
+.cert-card { background: var(--color-surface) !important; border-top: 3px solid var(--color-blue) !important; }
+.cert-card[data-issuer="ibm"]       { border-top-color: #2563EB !important; }
+.cert-card[data-issuer="microsoft"] { border-top-color: #00A4EF !important; }
+.cert-card[data-issuer="nptel"]     { border-top-color: #10B981 !important; }
+
+/* Contact info cards */
+.contact-info-card {
+  background: var(--color-surface) !important;
+  border-left: 4px solid var(--color-blue) !important;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1) !important;
+}
+.contact-info-card:hover {
+  transform: translateX(6px) !important;
+  border-left-color: var(--color-violet) !important;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.12) !important;
+}
+
+/* About stats card */
+.about-stats-card {
+  background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(124,58,237,0.04) 100%) !important;
+  border: 1px solid rgba(37,99,235,0.15) !important;
+}
+
+/* Section eyebrow labels (ABOUT ME, SKILLS, etc.) */
+.section-eyebrow {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font: 700 11px/1 var(--font-body) !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  display: inline-block;
+}
+
+/* Section main headings */
+.section-heading {
+  color: var(--color-text) !important;
+  font: 700 clamp(32px,5vw,52px)/1.1 var(--font-display) !important;
+  margin-bottom: var(--space-md);
+}
+
+/* Card titles */
+.card-title { color: var(--color-text) !important; font: 600 18px/1.3 var(--font-display) !important; }
+
+/* Card subtitles / company names — gradient */
+.card-subtitle {
+  background: var(--gradient-ocean);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600 !important;
+}
+
+/* Year / date badges */
+.date-badge {
+  background: var(--gradient-brand) !important;
+  color: white !important;
+  padding: 3px 12px !important;
+  border-radius: 999px !important;
+  font: 600 12px/1.4 var(--font-body) !important;
+}
+
+/* CGPA badge */
+.cgpa-badge {
+  color: var(--color-emerald) !important;
+  font: 700 15px/1 var(--font-display) !important;
+  background: #ECFDF5 !important;
+  padding: 4px 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(16,185,129,0.25) !important;
+  display: inline-block;
+}
+
+/* Cert issuer names */
+.cert-issuer {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+
+/* Prize / award amount */
+.prize-text {
+  color: var(--color-emerald) !important;
+  font-weight: 700 !important;
+}
+
+/* Achievement event name */
+.achievement-event {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600 !important;
+}
+
+/* Universal transition base — add to these selectors */
+.glass,
+.project-card,
+.cert-card,
+.achievement-card,
+.timeline-item,
+.contact-info-card,
+.skill-pill,
+.btn-primary,
+.btn-outline,
+.btn-ghost,
+.social-icon,
+.nav-links a,
+.skill-filter-tab {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Hover lifts */
+.project-card:hover    { transform: translateY(-6px) !important; box-shadow: 0 20px 48px rgba(37,99,235,0.14) !important; }
+.cert-card:hover       { transform: translateY(-4px) !important; box-shadow: 0 12px 32px rgba(37,99,235,0.12) !important; }
+.achievement-card:hover{ transform: translateY(-4px) !important; box-shadow: 0 12px 32px rgba(124,58,237,0.14) !important; }
+.skill-pill:hover      { transform: translateY(-2px) scale(1.04) !important; }
+
+/* Send message button — keep gradient, add shimmer sweep */
+.btn-send {
+  background: var(--gradient-brand) !important;
+  color: white !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+.btn-send::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: skewX(-20deg);
+}
+.btn-send:hover::before { animation: btnShimmer 0.55s ease forwards; }
+
+/* Hero background — animated mesh, NOT plain white/grey */
+.hero {
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(37,99,235,0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(124,58,237,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 55% 10%, rgba(8,145,178,0.07) 0%, transparent 45%),
+    var(--color-bg) !important;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated name shimmer — already defined, ensure applied */
+.hero-name {
+  background: linear-gradient(270deg, #2563EB, #7C3AED, #0891B2, #2563EB);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s ease infinite;
+}
+
+/* Tagline — make bold and gradient */
+.hero-tagline {
+  font: 700 clamp(18px, 2.5vw, 24px)/1.4 var(--font-display) !important;
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: var(--space-md) 0 !important;
+}
+
+/* Hero body text — slightly larger, better color */
+.hero-body {
+  font: 400 17px/1.75 var(--font-body) !important;
+  color: var(--color-text-muted) !important;
+  max-width: 520px;
+}
+
+/* Profile image — 3D tilt card effect */
+.hero-profile-wrapper {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease-out);
+}
+.hero-profile-wrapper:hover {
+  transform: rotateY(-8deg) rotateX(4deg) scale(1.03);
+}
+
+/* Profile outer glow ring */
+.hero-profile-img {
+  border-radius: 50%;
+  border: 4px solid transparent !important;
+  background-clip: padding-box;
+  position: relative;
+}
+.hero-profile-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #2563EB, #7C3AED, #0891B2, #2563EB);
+  animation: rotateBorder 4s linear infinite;
+  z-index: -1;
+}
+
+/* Floating mini-cards — upgrade styling */
+.hero-float-card {
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  background: rgba(255,255,255,0.80) !important;
+  border: 1px solid rgba(255,255,255,0.90) !important;
+  box-shadow: 0 8px 24px rgba(37,99,235,0.15) !important;
+  font: 600 12px/1 var(--font-body) !important;
+  padding: 10px 16px !important;
+  border-radius: var(--radius-md) !important;
+}
+.float-card-win   { background: linear-gradient(135deg,rgba(255,243,205,0.90),rgba(253,230,138,0.85)) !important; color: #92400e !important; border-color: rgba(253,230,138,0.80) !important; }
+.float-card-ar    { background: linear-gradient(135deg,rgba(224,242,254,0.90),rgba(186,230,253,0.85)) !important; color: #0369a1 !important; border-color: rgba(186,230,253,0.80) !important; }
+.float-card-stack { background: linear-gradient(135deg,rgba(245,243,255,0.90),rgba(221,214,254,0.85)) !important; color: #5b21b6 !important; border-color: rgba(221,214,254,0.80) !important; }
+
+/* Stats row — gradient border top on each card */
+.stat-card {
+  background: var(--color-surface) !important;
+  border: 1px solid rgba(37,99,235,0.15) !important;
+  border-top: 3px solid transparent !important;
+  border-image: var(--gradient-brand) 1 !important;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.08) !important;
+  transition: all 0.25s var(--ease-out) !important;
+}
+.stat-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 28px rgba(37,99,235,0.14) !important;
+}
+
+/* Education section — own background identity */
+#education {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.08) 0%, transparent 55%),
+    var(--color-bg-alt) !important;
+  padding: var(--space-3xl) var(--space-xl) !important;
+}
+
+/* Education card — premium feel */
+.education-card {
+  background: var(--color-surface) !important;
+  border-left: 5px solid var(--color-blue) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.09) !important;
+  padding: var(--space-xl) var(--space-2xl) !important;
+  transition: all 0.28s var(--ease-out) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Decorative gradient blob inside card */
+.education-card::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.education-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 36px rgba(37,99,235,0.14) !important;
+  border-left-color: var(--color-violet) !important;
+}
+
+/* Degree title */
+.edu-degree {
+  font: 700 20px/1.3 var(--font-display) !important;
+  color: var(--color-text) !important;
+}
+
+/* College name */
+.edu-college {
+  background: var(--gradient-ocean);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font: 600 15px/1.4 var(--font-body) !important;
+  margin-top: 4px;
+}
+
+.footer {
+  background: #0F172A !important;
+  padding: var(--space-2xl) var(--space-xl) !important;
+  position: relative;
+}
+
+/* Aurora top border */
+.footer::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important; left: 0 !important; right: 0 !important; height: 2px !important;
+  background: var(--gradient-aurora) !important;
+}
+
+/* Footer layout — two column only */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-xl);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Left — branding */
+.footer-brand-name {
+  font: 700 28px/1 var(--font-display);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-sm);
+}
+
+/* Tagline — replace "Driven by curiosity..." with this version */
+.footer-tagline {
+  font: 400 14px/1.6 var(--font-body);
+  color: rgba(255,255,255,0.45);
+  max-width: 280px;
+  margin-bottom: var(--space-lg);
+}
+
+/* Footer social icons — white + hover brand */
+.footer .social-icon {
+  background: rgba(255,255,255,0.07) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  transition: all 0.25s var(--ease-out) !important;
+}
+.footer .social-icon:hover {
+  background: rgba(37,99,235,0.25) !important;
+  border-color: rgba(37,99,235,0.50) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(37,99,235,0.30) !important;
+}
+
+/* Right — built with */
+.footer-right {
+  text-align: right;
+  color: rgba(255,255,255,0.35) !important;
+  font: 400 13px/1.7 var(--font-body) !important;
+}
+.footer-right strong {
+  color: rgba(255,255,255,0.65) !important;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  margin-top: var(--space-xl) !important;
+  padding-top: var(--space-lg) !important;
+  text-align: center !important;
+  color: rgba(255,255,255,0.28) !important;
+  font: 400 12px/1 var(--font-body) !important;
+}
+
+/* Section cards — subtle 3D on hover using perspective */
+.project-card,
+.cert-card,
+.achievement-card {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+/* Cert cards — shimmer sweep on hover */
+.cert-card { overflow: hidden; position: relative; }
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+.cert-card:hover::before { animation: btnShimmer 0.55s ease forwards; }

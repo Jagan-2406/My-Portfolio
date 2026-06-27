@@ -79,9 +79,9 @@ export default function Navbar() {
       <div className="progress-bar" />
 
       <nav className={`navbar ${isScrolled ? 'scrolled' : 'top'}`}>
-        {/* Left: JV Monogram Logo */}
+        {/* Left: Jagan Monogram Logo */}
         <a href="#hero" className="nav-logo" onClick={(e) => handleLinkClick(e, '#hero')}>
-          JV
+          Jagan
         </a>
 
         {/* Center/Right: Desktop Nav Links */}

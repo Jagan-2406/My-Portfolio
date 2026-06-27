@@ -18,21 +18,21 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="education" className="section">
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Education</span>
-          <h2 className="text-h1 section-title">Academic Background</h2>
+          <span className="section-eyebrow">Education</span>
+          <h2 className="section-heading">Academic Background</h2>
           <p className="section-desc">Details of my academic history and coursework.</p>
         </div>
 
-        {/* Timeline Container */}
-        <div className="timeline">
+        {/* Education Card Container */}
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           {educationData.map((edu, index) => (
             <div
               key={index}
-              className="timeline-item glass reveal"
+              className="education-card reveal"
               data-delay={`${index * 0.15}s`}
             >
               <div className="timeline-header">
@@ -41,16 +41,16 @@ export default function Education() {
                     {edu.logo}
                   </span>
                   <div>
-                    <h3 className="timeline-role">{edu.degree}</h3>
-                    <div className="timeline-company">{edu.college}</div>
+                    <h3 className="edu-degree">{edu.degree}</h3>
+                    <div className="edu-college">{edu.college}</div>
                   </div>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
-                  <span className="timeline-date">{edu.duration}</span>
-                  <div className="education-cgpa">CGPA: {edu.cgpa}</div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+                  <span className="timeline-date date-badge">{edu.duration}</span>
+                  <div className="cgpa-badge">CGPA: {edu.cgpa}</div>
                 </div>
               </div>
-              <p className="timeline-desc">{edu.description}</p>
+              <p className="timeline-desc" style={{ marginTop: 'var(--space-md)' }}>{edu.description}</p>
             </div>
           ))}
         </div>

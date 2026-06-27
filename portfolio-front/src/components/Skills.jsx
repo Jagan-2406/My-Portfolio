@@ -158,8 +158,8 @@ export default function Skills() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Skills</span>
-          <h2 className="text-h1 section-title">My Tech Stack & Expertise</h2>
+          <span className="section-eyebrow">Skills</span>
+          <h2 className="section-heading">My Tech Stack & Expertise</h2>
           <p className="section-desc">Filtered by category of application, design, or tools.</p>
         </div>
 
@@ -168,7 +168,7 @@ export default function Skills() {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`filter-tab ${activeCategory === cat ? 'active' : ''}`}
+              className={`skill-filter-tab ${activeCategory === cat ? 'active' : ''}`}
               onClick={() => setActiveCategory(cat)}
             >
               {cat}

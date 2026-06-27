@@ -27,8 +27,8 @@ export default function Experience() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Experience</span>
-          <h2 className="text-h1 section-title">Professional Journey</h2>
+          <span className="section-eyebrow">Experience</span>
+          <h2 className="section-heading">Professional Journey</h2>
           <p className="section-desc">My professional internships and industry-aligned experiences.</p>
         </div>
 
@@ -50,11 +50,11 @@ export default function Experience() {
                   />
                   <div>
                     <h3 className="timeline-role">{exp.role}</h3>
-                    <div className="timeline-company">{exp.company}</div>
+                    <div className="timeline-company card-subtitle">{exp.company}</div>
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
-                  <span className="timeline-date">{exp.duration}</span>
+                  <span className="timeline-date date-badge">{exp.duration}</span>
                   <span style={{ fontSize: '12px', color: 'var(--color-text-faint)', fontStyle: 'italic' }}>
                     {exp.location}
                   </span>

@@ -74,8 +74,8 @@ export default function Certifications() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-subtitle">Credentials</span>
-          <h2 className="text-h1 section-title">Certifications</h2>
+          <span className="section-eyebrow">Credentials</span>
+          <h2 className="section-heading">Certifications</h2>
           <p className="section-desc">Professional qualifications and aligned industry achievements.</p>
         </div>
 
@@ -95,17 +95,17 @@ export default function Certifications() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)' }}>
                     {renderLogo(cert.logo)}
                     <div>
-                      <h3 className="cert-title" style={{ fontSize: '15px', fontWeight: 600, lineHieght: 1.4 }}>{cert.title}</h3>
+                      <h3 className="cert-title card-title" style={{ fontSize: '15px', fontWeight: 600, lineHieght: 1.4 }}>{cert.title}</h3>
                       <div className="cert-issuer" style={{ fontSize: '13px', marginTop: '2px' }}>{cert.issuer}</div>
                     </div>
                   </div>
                 </div>
                 <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'between', alignItems: 'center', paddingTop: 'var(--space-md)' }}>
-                  <span className="cert-year">{cert.year}</span>
+                  <span className="cert-year date-badge">{cert.year}</span>
                   <div className="cert-action">
                     <a
                       href={cert.link}
-                      className="btn-ghost"
+                      className="cert-view-btn"
                       style={{ padding: '4px 12px', fontSize: '11px', borderRadius: 'var(--radius-sm)' }}
                       onClick={(e) => e.preventDefault()} // Keep as interactive placeholder
                     >

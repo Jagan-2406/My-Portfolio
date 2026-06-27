@@ -7,42 +7,42 @@ export default function Certifications() {
       issuer: 'IBM / TN Govt',
       year: '2026',
       logo: 'https://cdn.simpleicons.org/ibm/052FAD',
-      link: '#'
+      link: 'https://drive.google.com/file/d/1ZOpmdziBDOmbdXSivkHajSzk-1EASpxE/view?usp=sharing'
     },
     {
       title: 'Front End Technologies',
       issuer: 'IBM',
       year: '2025',
       logo: 'https://cdn.simpleicons.org/ibm/052FAD',
-      link: '#'
+      link: 'https://drive.google.com/file/d/1yIy2Ml4lmQlS4ipzELi0doZ35L4U3WQE/view?usp=sharing'
     },
     {
       title: 'Introduction to Cognos Analytics',
       issuer: 'IBM',
       year: '2024',
       logo: 'https://cdn.simpleicons.org/ibm/052FAD',
-      link: '#'
+      link: 'https://drive.google.com/file/d/1Jd228DIpva01EdREO0tZrlEJ82D1X2CT/view?usp=drive_link'
     },
     {
       title: 'Ethical Hacking',
       issuer: 'NPTEL / Skill India',
       year: '2025',
       logo: 'nptel',
-      link: '#'
+      link: 'https://drive.google.com/file/d/1ZVHnQ0nhHrGB-NaqbyTR7xw9GfFiObjU/view?usp=drive_link'
     },
     {
       title: 'Data Analytics with Python',
       issuer: 'NPTEL / Skill India',
       year: '2025',
       logo: 'nptel',
-      link: '#'
+      link: 'https://drive.google.com/file/d/1K0ihiCAj3hP2CJ0YG0r2HVe3t-_6S9K2/view?usp=sharing'
     },
     {
       title: 'Power BI',
       issuer: 'Microsoft',
       year: '2026',
       logo: 'https://cdn.simpleicons.org/microsoft/F25022',
-      link: '#'
+      link: 'https://drive.google.com/file/d/1KjYDsej-Voaim29SoWoObvYbJacE45FH/view?usp=drive_link'
     }
   ];
 

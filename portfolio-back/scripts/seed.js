@@ -6,7 +6,7 @@ const projectsToSeed = [
   {
     name: "Earthquake Awareness Using Augmented Reality",
     description: "AR-based earthquake awareness app that simulates disaster scenarios to educate users on emergency preparedness through interactive experiences.",
-    tech: ["Unity", "ARCore", "C#", "Python", "Android Studio"],
+    tech: ["Unity", "ARCore", "C#", "Android Studio"],
     github: "https://github.com/Jagan-2406/My-AR",
     live: "Android APK available",
     category: "AR",
@@ -26,7 +26,7 @@ const projectsToSeed = [
   {
     name: "Solla Marandha Kadhai — AI Tamil Language Learning Platform",
     description: "AI-powered Tamil language learning platform that generates grammatically correct Tamil sentences and real-life dialogues using NLP.",
-    tech: ["Python", "Flask", "Open-Tamil", "SQLite", "Claude AI API", "gTTS", "Web Speech API", "HTML5", "CSS3", "JS", "Vercel"],
+    tech: ["Python", "Flask", "Open-Tamil", "Supabase", "gTTS", "Web Speech API", "HTML5", "CSS3", "JS", "Vercel"],
     github: "https://github.com/Jagan-2406/Solla_marandha_kadhai",
     live: "https://solla-marandha-kadhai.vercel.app",
     category: "AI/ML",
@@ -45,7 +45,7 @@ const seedDB = async () => {
 
     console.log('Connecting to database for seeding...');
     await mongoose.connect(uri);
-    
+
     // Clear projects collection
     console.log('Clearing existing projects...');
     await Project.deleteMany({});
@@ -53,7 +53,7 @@ const seedDB = async () => {
     // Seed projects
     console.log('Inserting seed projects...');
     await Project.insertMany(projectsToSeed);
-    
+
     console.log('Database seeded successfully!');
     mongoose.connection.close();
     process.exit(0);

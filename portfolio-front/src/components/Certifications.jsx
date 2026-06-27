@@ -107,7 +107,8 @@ export default function Certifications() {
                       href={cert.link}
                       className="cert-view-btn"
                       style={{ padding: '4px 12px', fontSize: '11px', borderRadius: 'var(--radius-sm)' }}
-                      onClick={(e) => e.preventDefault()} // Keep as interactive placeholder
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       View Certificate
                     </a>

@@ -200,13 +200,13 @@ export default function Projects() {
                     
                     {project.live && (
                       <a
-                        href={project.live.startsWith('http') ? project.live : project.github}
+                        href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-ghost"
                         style={{
-                          borderColor: project.live.startsWith('http') ? 'var(--color-blue)' : 'var(--color-border)',
-                          color: project.live.startsWith('http') ? 'var(--color-blue)' : 'var(--color-text-muted)'
+                          borderColor: 'var(--color-blue)',
+                          color: 'var(--color-blue)'
                         }}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -214,7 +214,7 @@ export default function Projects() {
                           <polyline points="15 3 21 3 21 9" />
                           <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
-                        {project.live.startsWith('http') ? 'Live Demo' : 'Download APK'}
+                        {project.category === 'AR' ? 'Download APK' : 'Live Demo'}
                       </a>
                     )}
                   </div>

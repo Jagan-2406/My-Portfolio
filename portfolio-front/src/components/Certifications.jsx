@@ -6,21 +6,21 @@ export default function Certifications() {
       title: 'IBM Naan Mudhalvan Hackathon Certificate',
       issuer: 'IBM / TN Govt',
       year: '2026',
-      logo: 'https://cdn.simpleicons.org/ibm/052FAD',
+      logo: 'ibm',
       link: 'https://drive.google.com/file/d/1ZOpmdziBDOmbdXSivkHajSzk-1EASpxE/view?usp=sharing'
     },
     {
       title: 'Front End Technologies',
       issuer: 'IBM',
       year: '2025',
-      logo: 'https://cdn.simpleicons.org/ibm/052FAD',
+      logo: 'ibm',
       link: 'https://drive.google.com/file/d/1yIy2Ml4lmQlS4ipzELi0doZ35L4U3WQE/view?usp=sharing'
     },
     {
       title: 'Introduction to Cognos Analytics',
       issuer: 'IBM',
       year: '2024',
-      logo: 'https://cdn.simpleicons.org/ibm/052FAD',
+      logo: 'ibm',
       link: 'https://drive.google.com/file/d/1Jd228DIpva01EdREO0tZrlEJ82D1X2CT/view?usp=drive_link'
     },
     {
@@ -41,7 +41,7 @@ export default function Certifications() {
       title: 'Power BI',
       issuer: 'Microsoft',
       year: '2026',
-      logo: 'https://cdn.simpleicons.org/microsoft/F25022',
+      logo: 'microsoft',
       link: 'https://drive.google.com/file/d/1KjYDsej-Voaim29SoWoObvYbJacE45FH/view?usp=drive_link'
     }
   ];
@@ -56,17 +56,28 @@ export default function Certifications() {
         </span>
       );
     }
-    return (
-      <img
-        src={logo}
-        alt="Issuer Logo"
-        className="cert-logo"
-        loading="lazy"
-        onError={(e) => {
-          e.target.style.display = 'none';
-        }}
-      />
-    );
+    if (logo === 'ibm') {
+      return (
+        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', background: 'rgba(37,99,235,0.06)', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(37,99,235,0.15)', color: '#2563EB' }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+            <line x1="6" y1="6" x2="6.01" y2="6" />
+            <line x1="6" y1="18" x2="6.01" y2="18" />
+          </svg>
+        </span>
+      );
+    }
+    if (logo === 'microsoft') {
+      return (
+        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', background: 'rgba(0,164,239,0.06)', borderRadius: 'var(--radius-sm)', border: '1px solid rgba(0,164,239,0.15)', color: '#00A4EF' }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h11v11H0zM13 0h11v11H13zM0 13h11v11H0zM13 13h11v11H13z" />
+          </svg>
+        </span>
+      );
+    }
+    return null;
   };
 
   return (

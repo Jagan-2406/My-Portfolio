@@ -25,15 +25,10 @@ const ProjectSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Full Stack', 'AI/ML', 'AR']
   },
   featured: {
     type: Boolean,
     default: false
-  },
-  outcome: {
-    type: String,
-    required: true
   }
 }, { timestamps: true });
 

@@ -10,8 +10,7 @@ const projectsToSeed = [
     github: "https://github.com/Jagan-2406/My-AR",
     live: "https://drive.google.com/file/d/1OScVx_dDAmWF2_4MeiFvqeGrTxJBppdR/view?usp=sharing",
     category: "AR",
-    featured: false,
-    outcome: "Deployed interactive AR app on Android — practical disaster awareness and emergency preparedness tool."
+    featured: false
   },
   {
     name: "Smart Appointment Scheduling System",
@@ -20,8 +19,7 @@ const projectsToSeed = [
     github: "https://github.com/Jagan-2406/Appointment_Scheduling",
     live: "https://appointment-scheduling-zeta.vercel.app",
     category: "Full Stack",
-    featured: true,
-    outcome: "🏆 1st Prize — IBM Naan Mudhalvan Hackathon 2026 · ₹25,000 cash award"
+    featured: true
   },
   {
     name: "Solla Marandha Kadhai — AI Tamil Language Learning Platform",
@@ -30,8 +28,7 @@ const projectsToSeed = [
     github: "https://github.com/Jagan-2406/Solla_marandha_kadhai",
     live: "https://solla-marandha-kadhai.vercel.app",
     category: "AI/ML",
-    featured: false,
-    outcome: "AI-powered educational platform for interactive Tamil language learning using NLP — built for a hackathon."
+    featured: false
   }
 ];
 

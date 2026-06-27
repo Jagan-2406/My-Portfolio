@@ -2543,3 +2543,52 @@ a:hover { color: var(--color-violet); }
   pointer-events: none;
 }
 .cert-card:hover::before { animation: btnShimmer 0.55s ease forwards; }
+
+/* ─── Theme Toggle Button ────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--color-violet);
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  flex-shrink: 0;
+  outline: none;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: var(--color-violet);
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.35);
+}
+
+.theme-toggle:active {
+  transform: rotate(0deg) scale(0.95);
+}
+
+.theme-toggle svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(30deg);
+}
+
+/* Timeline logo */
+.timeline-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  padding: 4px;
+  border: 1px solid rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}

@@ -256,21 +256,51 @@
 
 /* ── Glass cards ── */
 [data-theme="dark"] .glass {
-  background: rgba(22,22,31,0.75);
-  background-image: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  background: #16161F;
+  background-image: none !important;
   border-color: rgba(255,255,255,0.07);
   box-shadow: 0 4px 24px rgba(0,0,0,0.40);
   color: #F1F0FF;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 [data-theme="dark"] .glass::after {
-  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.00) 40%, rgba(255,255,255,0.00) 60%, rgba(255,255,255,0.03) 100%);
+  background: none !important;
+  display: none;
+}
+[data-theme="dark"] .glass::before {
+  background: none !important;
+  display: none;
 }
 [data-theme="dark"] .glass:hover {
-  background: rgba(28,28,40,0.90);
+  background: #1C1C28;
   border-color: rgba(139,92,246,0.30);
   box-shadow: var(--gz-glow-violet);
   transform: translateY(-4px);
 }
+
+/* Also kill white image on all dark cards globally */
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .achievement-card,
+[data-theme="dark"] .cert-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .contact-form-wrapper,
+[data-theme="dark"] .timeline-item {
+  background-image: none !important;
+}
+[data-theme="dark"] .project-card::after,
+[data-theme="dark"] .project-card::before,
+[data-theme="dark"] .achievement-card::after,
+[data-theme="dark"] .achievement-card::before,
+[data-theme="dark"] .cert-card::after,
+[data-theme="dark"] .cert-card::before,
+[data-theme="dark"] .contact-card::after,
+[data-theme="dark"] .contact-card::before,
+[data-theme="dark"] .timeline-item::after {
+  background: none !important;
+  display: none;
+}
+
 
 /* ── About section ── */
 [data-theme="dark"] .about-stats-card {
@@ -325,7 +355,7 @@
   box-shadow: 0 0 12px rgba(139,92,246,0.40);
 }
 [data-theme="dark"] .timeline-item {
-  background: rgba(22,22,31,0.75);
+  background: #16161F;
   border-color: rgba(255,255,255,0.07);
   border-left: 3px solid rgba(139,92,246,0.30);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
@@ -356,8 +386,7 @@
 
 /* ── Projects ── */
 [data-theme="dark"] .project-card {
-  background: rgba(22,22,31,0.75);
-  background-image: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  background: #16161F;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
   color: #F1F0FF;
@@ -395,8 +424,7 @@
 
 /* ── Achievements ── */
 [data-theme="dark"] .achievement-card {
-  background: rgba(22,22,31,0.75);
-  background-image: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  background: #16161F;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
@@ -463,8 +491,7 @@
 
 /* ── Certifications ── */
 [data-theme="dark"] .cert-card {
-  background: rgba(22,22,31,0.75);
-  background-image: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  background: #16161F;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
   border-top: 3px solid #3B82F6;
@@ -507,7 +534,7 @@
     #0A0A0F;
 }
 [data-theme="dark"] .contact-card {
-  background: rgba(22,22,31,0.75);
+  background: #16161F;
   border-color: rgba(255,255,255,0.07);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
   color: #F1F0FF;
@@ -528,7 +555,7 @@
   color: white;
 }
 [data-theme="dark"] .contact-form-wrapper {
-  background: rgba(22,22,31,0.75);
+  background: #16161F;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }

@@ -5,7 +5,6 @@ import useScrollAnimation from '../hooks/useScrollAnimation';
 
 export default function Projects() {
   const [projects, setProjects] = useState(projectsData);
-  const [activeFilter, setActiveFilter] = useState('All');
 
   useEffect(() => {
     async function loadProjects() {
@@ -21,15 +20,7 @@ export default function Projects() {
     loadProjects();
   }, []);
 
-  // Update animations when projects state or active filter changes
-  useScrollAnimation([projects, activeFilter]);
-
-  const filters = ['All', 'Full Stack', 'AI/ML', 'AR'];
-
-  const getFilteredProjects = () => {
-    if (activeFilter === 'All') return projects;
-    return projects.filter(p => p.category === activeFilter);
-  };
+  useScrollAnimation([projects]);
 
   // Helper to map tech name to devicon or simpleicon
   const getTechIcon = (techName) => {
@@ -102,22 +93,11 @@ export default function Projects() {
           <p className="section-desc">AI solutions, immersive AR applications, and full-stack scheduling systems.</p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="skills-filter reveal" data-delay="0.1s">
-          {filters.map(filter => (
-            <button
-              key={filter}
-              className={`filter-tab ${activeFilter === filter ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter)}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+
 
         {/* Projects Grid */}
         <div className="projects-grid">
-          {getFilteredProjects().map((project, index) => {
+          {projects.map((project, index) => {
             const isFeatured = project.featured === true || String(project.featured) === 'true';
             return (
               <div
@@ -164,27 +144,8 @@ export default function Projects() {
                     })}
                   </div>
 
-                  {/* Outcome Highlight Box */}
-                  {project.outcome && (
-                    <div style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.4)',
-                      border: '1px dashed var(--color-border)',
-                      borderRadius: 'var(--radius-sm)',
-                      padding: '8px 12px',
-                      marginBottom: 'var(--space-md)',
-                      fontSize: '12.5px',
-                      color: 'var(--color-text-muted)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px'
-                    }}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                      <span>{project.outcome.replace('🏆', '')}</span>
-                    </div>
-                  )}
+
+
 
                   {/* Card Action Buttons */}
                   <div className="card-actions">

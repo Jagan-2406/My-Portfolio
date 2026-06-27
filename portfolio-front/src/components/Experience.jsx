@@ -42,12 +42,37 @@ export default function Experience() {
             >
               <div className="timeline-header">
                 <div className="timeline-role-info">
-                  <img
-                    src={exp.logo}
-                    alt={exp.company}
-                    className="timeline-logo"
-                    loading="lazy"
-                  />
+                  {exp.logo ? (
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="timeline-logo"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div
+                    className="timeline-logo-fallback"
+                    style={{
+                      display: 'none',
+                      width: '44px',
+                      height: '44px',
+                      borderRadius: '10px',
+                      background: 'linear-gradient(135deg, #052FAD, #1a56db)',
+                      color: '#fff',
+                      fontWeight: 800,
+                      fontSize: '14px',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      letterSpacing: '0.5px',
+                      flexShrink: 0,
+                    }}
+                  >
+                    IBM
+                  </div>
                   <div>
                     <h3 className="timeline-role">{exp.role}</h3>
                     <div className="timeline-company card-subtitle">{exp.company}</div>

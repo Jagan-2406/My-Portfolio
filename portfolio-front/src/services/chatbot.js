@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://my-portfolio-backend-judh.onrender.com';
 
 /**
  * Send conversation message history to the backend chatbot endpoint.

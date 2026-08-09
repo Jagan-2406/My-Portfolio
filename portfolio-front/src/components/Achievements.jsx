@@ -35,8 +35,8 @@ export default function Achievements() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="section-eyebrow">Achievements</span>
-          <h2 className="section-heading">Honors & Awards</h2>
+          <span className="section-eyebrow">Awards</span>
+          <h2 className="section-heading"> Achievements</h2>
           <p className="section-desc">Recognition received for project development and technical skills.</p>
         </div>
 

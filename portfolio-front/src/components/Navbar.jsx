@@ -143,13 +143,13 @@ export default function Navbar() {
           )}
         </button>
 
-        {/* Far Right: Reach Me CTA Pill */}
+        {/* Far Right: Reach Out CTA Pill */}
         <button
           className="nav-cta"
           onClick={(e) => handleLinkClick(e, '#contact')}
           style={{ display: 'block' }}
         >
-          Reach Me
+          Reach Out
         </button>
 
         {/* Mobile Hamburger Icon */}
@@ -180,7 +180,7 @@ export default function Navbar() {
           className="mobile-menu-cta"
           onClick={(e) => handleLinkClick(e, '#contact')}
         >
-          Hire Me
+          Reach Out
         </a>
       </div>
     </>
